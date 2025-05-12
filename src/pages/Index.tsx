@@ -8,186 +8,153 @@ import Icon from "@/components/ui/icon";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-// Типы данных для API интеграции
-interface LiveNewsArticle {
-  id: string;
-  title: string;
-  excerpt: string;
-  image: string;
-  category: string;
-  date: string;
-  readTime?: string;
-  commentCount?: number;
-  isHot?: boolean;
-  url?: string;
-  source?: string;
-}
-
 const Index: React.FC = () => {
-  // Здесь в реальном приложении будет вызов API или fetch для получения данных
-  // const [featuredNews, setFeaturedNews] = useState<LiveNewsArticle | null>(null);
-  // const [recentNews, setRecentNews] = useState<LiveNewsArticle[]>([]);
-  // useEffect(() => { fetchNewsFromChampionat(); }, []);
-
-  // Актуальные новости, которые будут заменены на данные из API
+  // Новости на 12 мая 2025 года
   const featuredNews: NewsArticle = {
     id: "1",
-    title: "Россия победила Парагвай со счётом 2:1 в товарищеском матче",
+    title: "«Краснодар» впервые в истории выиграл чемпионат России",
     excerpt:
-      "Сборная России по футболу обыграла команду Парагвая в товарищеском матче. Встреча прошла на стадионе «ВЭБ Арена» в Москве и завершилась со счётом 2:1 в пользу хозяев.",
-    image: "https://source.unsplash.com/random/900x700/?soccer,russia",
-    category: "Сборная России",
-    date: "12 мая 2024",
-    readTime: "3 мин",
-    commentCount: 327,
+      "ФК «Краснодар» досрочно стал чемпионом России сезона 2024/2025, прервав гегемонию «Зенита». Команда Владимира Ивича обеспечила себе титул за тур до финиша, обыграв «Спартак» со счётом 3:1.",
+    image: "https://source.unsplash.com/random/900x700/?soccer,fc-krasnodar",
+    category: "РПЛ",
+    date: "12 мая 2025",
+    readTime: "5 мин",
+    commentCount: 1286,
     isHot: true,
   };
 
   const recentNews: NewsArticle[] = [
     {
       id: "2",
-      title: "«Спартак» обыграл «Ростов» 2:1 и вышел на второе место в РПЛ",
+      title: "Карпин продлил контракт со сборной России до 2028 года",
       excerpt:
-        "Московский «Спартак» победил «Ростов» в матче 28-го тура Российской Премьер-Лиги. Встреча прошла в Москве и завершилась со счётом 2:1.",
-      image: "https://source.unsplash.com/random/900x700/?soccer,spartak",
-      category: "РПЛ",
-      date: "11 мая 2024",
-      readTime: "4 мин",
-      commentCount: 456,
+        "Валерий Карпин продолжит работу на посту главного тренера сборной России. Специалист подписал новое соглашение с РФС до 2028 года, после успешного выступления в отборочном цикле ЧМ-2026.",
+      image: "https://source.unsplash.com/random/900x700/?soccer,coach",
+      category: "Сборная России",
+      date: "11 мая 2025",
+      readTime: "3 мин",
+      commentCount: 743,
       isHot: true,
     },
     {
       id: "3",
-      title: "«Зенит» обыграл ЦСКА и стал чемпионом России шестой раз подряд",
+      title:
+        "«Реал» в 16-й раз выиграл Лигу чемпионов, победив «Ман Сити» в финале",
       excerpt:
-        "«Зенит» обыграл ЦСКА в матче 28-го тура Российской Премьер-Лиги и досрочно стал чемпионом страны. Петербургский клуб завоевал чемпионство в шестой раз подряд.",
-      image: "https://source.unsplash.com/random/900x700/?soccer,zenit",
-      category: "РПЛ",
-      date: "11 мая 2024",
-      readTime: "5 мин",
-      commentCount: 394,
+        "«Реал Мадрид» обыграл «Манчестер Сити» в финале Лиги чемпионов 2024/2025 со счётом 2:1. Решающий гол на 89-й минуте забил Килиан Мбаппе. Для королевского клуба это 16-й титул в истории турнира.",
+      image: "https://source.unsplash.com/random/900x700/?soccer,real-madrid",
+      category: "Лига чемпионов",
+      date: "10 мая 2025",
+      readTime: "6 мин",
+      commentCount: 1874,
     },
     {
       id: "4",
-      title: "Кейн стал лучшим бомбардиром Бундеслиги в дебютном сезоне",
+      title: "Пиоли возглавил «Спартак» после отставки Абаскаля",
       excerpt:
-        "Нападающий «Баварии» Гарри Кейн установил рекорд немецкой Бундеслиги, забив 36 голов в своём дебютном сезоне и став лучшим бомбардиром чемпионата.",
-      image: "https://source.unsplash.com/random/900x700/?soccer,kane",
-      category: "Бундеслига",
-      date: "10 мая 2024",
-      readTime: "3 мин",
-      commentCount: 126,
+        "Бывший главный тренер «Милана» Стефано Пиоли стал новым наставником московского «Спартака». Специалист подписал контракт на 2 года с опцией продления ещё на сезон. Гильермо Абаскаль покинул команду по соглашению сторон.",
+      image: "https://source.unsplash.com/random/900x700/?soccer,coach,spartak",
+      category: "РПЛ",
+      date: "9 мая 2025",
+      readTime: "4 мин",
+      commentCount: 968,
     },
     {
       id: "5",
-      title: "«Манчестер Сити» и «Арсенал» продолжают борьбу за титул в АПЛ",
+      title: "Холанд побил рекорд АПЛ по голам за сезон, забив 41 мяч",
       excerpt:
-        "За тур до конца сезона в английской Премьер-лиге «Манчестер Сити» опережает «Арсенал» на одно очко. Команда Гвардиолы близка к пятому титулу за последние шесть сезонов.",
-      image:
-        "https://source.unsplash.com/random/900x700/?soccer,manchester,arsenal",
+        "Нападающий «Манчестер Сити» Эрлинг Холанд установил новый рекорд английской Премьер-лиги, забив 41 гол в одном сезоне. Норвежец превзошёл своё же достижение (36 голов) в кампании 2022/2023.",
+      image: "https://source.unsplash.com/random/900x700/?soccer,haaland",
       category: "АПЛ",
-      date: "12 мая 2024",
-      readTime: "4 мин",
-      commentCount: 287,
+      date: "12 мая 2025",
+      readTime: "3 мин",
+      commentCount: 651,
     },
     {
       id: "6",
-      title:
-        "Обзор тура РПЛ: «Локомотив» победил «Динамо», «Краснодар» разгромил «Оренбург»",
+      title: "«Динамо» выиграло Кубок России, победив ЦСКА в финале",
       excerpt:
-        "В 28-м туре Российской Премьер-Лиги «Локомотив» в московском дерби одолел «Динамо» со счётом 2:0, а «Краснодар» разгромил «Оренбург» — 4:1.",
-      image: "https://source.unsplash.com/random/900x700/?soccer,lokomotiv",
-      category: "РПЛ",
-      date: "12 мая 2024",
-      readTime: "6 мин",
-      commentCount: 164,
+        "Московское «Динамо» завоевало Кубок России сезона 2024/2025, обыграв в финальном матче ЦСКА со счётом 2:0. Голы забили Тюкавин и Макаров. Бело-голубые взяли трофей впервые с 1995 года.",
+      image: "https://source.unsplash.com/random/900x700/?soccer,dinamo",
+      category: "Кубок России",
+      date: "8 мая 2025",
+      readTime: "4 мин",
+      commentCount: 587,
     },
   ];
 
-  // Массив ближайших матчей РПЛ
+  // Массив ближайших матчей РПЛ (сезон 2024/2025, финальные туры)
   const upcomingMatches = [
     {
       id: "m1",
-      home: "Крылья Советов",
-      away: "Спартак",
+      home: "Зенит",
+      away: "ЦСКА",
       league: "РПЛ, тур 29",
-      date: "19 мая 2024",
-      time: "17:30",
+      date: "17 мая 2025",
+      time: "19:00",
     },
     {
       id: "m2",
-      home: "Зенит",
-      away: "Ростов",
+      home: "Спартак",
+      away: "Динамо",
       league: "РПЛ, тур 29",
-      date: "19 мая 2024",
+      date: "18 мая 2025",
       time: "17:30",
     },
     {
       id: "m3",
-      home: "ЦСКА",
+      home: "Ростов",
       away: "Краснодар",
       league: "РПЛ, тур 29",
-      date: "19 мая 2024",
+      date: "17 мая 2025",
       time: "15:00",
     },
     {
       id: "m4",
       home: "Локомотив",
-      away: "Ахмат",
+      away: "Рубин",
       league: "РПЛ, тур 29",
-      date: "18 мая 2024",
+      date: "18 мая 2025",
       time: "15:00",
     },
   ];
 
-  // Массив турнирных таблиц с актуальными данными
+  // Массив турнирных таблиц (актуальных на май 2025 года)
   const leagues = [
     {
       id: "rpl",
-      name: "РПЛ 23/24",
+      name: "РПЛ 24/25",
       teams: [
-        { name: "Зенит", points: 67 },
-        { name: "Спартак", points: 59 },
-        { name: "Краснодар", points: 54 },
-        { name: "Динамо", points: 53 },
-        { name: "ЦСКА", points: 50 },
+        { name: "Краснодар", points: 68 },
+        { name: "Зенит", points: 63 },
+        { name: "Спартак", points: 61 },
+        { name: "Динамо", points: 59 },
+        { name: "ЦСКА", points: 53 },
       ],
     },
     {
       id: "premier",
-      name: "АПЛ 23/24",
+      name: "АПЛ 24/25",
       teams: [
-        { name: "Манчестер Сити", points: 85 },
-        { name: "Арсенал", points: 84 },
-        { name: "Ливерпуль", points: 78 },
-        { name: "Астон Вилла", points: 68 },
-        { name: "Тоттенхэм", points: 63 },
+        { name: "Манчестер Сити", points: 89 },
+        { name: "Арсенал", points: 86 },
+        { name: "Ливерпуль", points: 82 },
+        { name: "Ньюкасл", points: 70 },
+        { name: "Тоттенхэм", points: 68 },
       ],
     },
     {
       id: "laliga",
-      name: "Ла Лига 23/24",
+      name: "Ла Лига 24/25",
       teams: [
-        { name: "Реал Мадрид", points: 90 },
-        { name: "Барселона", points: 76 },
-        { name: "Жирона", points: 74 },
-        { name: "Атлетико", points: 70 },
-        { name: "Атлетик", points: 62 },
+        { name: "Реал Мадрид", points: 92 },
+        { name: "Барселона", points: 83 },
+        { name: "Атлетико", points: 71 },
+        { name: "Вильярреал", points: 65 },
+        { name: "Севилья", points: 62 },
       ],
     },
   ];
-
-  // В реальном приложении здесь будет функция для получения данных с API
-  // const fetchNewsFromChampionat = async () => {
-  //   try {
-  //     const response = await fetch('https://api-adapter-for-championat.com/latest-news');
-  //     const data = await response.json();
-  //     setFeaturedNews(data.featured);
-  //     setRecentNews(data.recent);
-  //   } catch (error) {
-  //     console.error('Ошибка при получении новостей:', error);
-  //   }
-  // };
 
   return (
     <div className="min-h-screen flex flex-col">
